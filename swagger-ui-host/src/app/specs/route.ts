@@ -15,7 +15,7 @@ export function GET(req: NextRequest) {
   // ファイルの内容を読み込む
   try {
     const template = fs.readFileSync(filePath, "utf8");
-    const body = template.replace("{{host}}", apiHost).replace("{{id}}", id);
+    const body = template.replace("{{host}}", apiHost).replaceAll("{{id}}", id);
 
     return new Response(body, {
       status: 200,

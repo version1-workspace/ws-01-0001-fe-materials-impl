@@ -1,13 +1,11 @@
 openapi: 3.0.0
 servers:
-  - description: RealTodo API - Local
+  - description: Express Web API - Local
     url: http://localhost:3000/api/v1
-  - description: RealTodo API - Production
-    url: https://express-web-api.netlify.app/api/v1
 info:
-  description: Real Todo API for programming course
+  description: Express Web API for programming course tutorial
   version: "1.0.0"
-  title: Real Todo API
+  title: Express Web API
 tags:
   - name: Auth
     description: 認証用エンドポイント
