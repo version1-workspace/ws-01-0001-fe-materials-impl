@@ -27,6 +27,12 @@ npm run dev
 | http://localhost:3000/api/v1 | API ルート (`{ "message": "ok" }`) |
 | http://localhost:3000/api/v1/spec | API 仕様書 (Swagger UI) |
 
+## データストアについて
+
+この API はインメモリデータストアを使用しています。外部データベースへの接続は不要です。
+
+サーバーを再起動するとデータは初期状態にリセットされます。
+
 ## API の配布用 zip 作成
 
 ```bash
