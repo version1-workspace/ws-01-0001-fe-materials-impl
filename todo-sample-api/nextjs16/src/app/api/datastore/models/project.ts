@@ -1,7 +1,7 @@
-import { Task, TaskParams } from "./task";
-import { now } from "./date";
-import DateDecorator from "./date";
 import { factory } from ".";
+import type DateDecorator from "./date";
+import { now } from "./date";
+import type { Task, TaskParams } from "./task";
 
 const Status = {
   initial: "initial",

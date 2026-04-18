@@ -82,12 +82,12 @@ const projects = [
   },
 ];
 
-const initProjects = function () {
-  // @ts-ignore
+const initProjects = () => {
+  // @ts-expect-error
   globalThis.__datastore.projects = projects;
 };
 
-export const initTasks = function () {
+export const initTasks = () => {
   const __tasks = new Array(100).fill("").map((_, index) => ({
     id: uuids[index],
     description: "",
@@ -101,7 +101,7 @@ export const initTasks = function () {
     project: projects[0],
   }));
 
-  // @ts-ignore
+  // @ts-expect-error
   globalThis.__datastore.tasks = __tasks;
 };
 
@@ -177,63 +177,61 @@ const stats = [
 ];
 
 const initStats = () => {
-  // @ts-ignore
+  // @ts-expect-error
   globalThis.__datastore.stats = stats;
 };
 
 export const getStats = () => {
-  // @ts-ignore
+  // @ts-expect-error
   if (!globalThis.__datastore) {
     init();
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   return globalThis.__datastore.stats || [];
 };
 
 export const getTasks = () => {
-  // @ts-ignore
+  // @ts-expect-error
   if (!globalThis.__datastore) {
     init();
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   return globalThis.__datastore.tasks || [];
 };
 
 export const setTasks = (tasks: any) => {
-  // @ts-ignore
+  // @ts-expect-error
   if (!globalThis.__datastore) {
     init();
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   globalThis.__datastore.tasks = tasks;
 };
 
 export const getProjects = () => {
-  // @ts-ignore
+  // @ts-expect-error
   if (!globalThis.__datastore) {
     init();
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   return globalThis.__datastore.projects || [];
 };
 
 export const getUUID = () => {
-  const tasks = getTasks()
-  const id = tasks[tasks.length-1].id
-  const index = uuids.findIndex((uuid) => uuid === id);
+  const tasks = getTasks();
+  const id = tasks[tasks.length - 1].id;
+  const index = uuids.indexOf(id);
   return uuids[index + 1];
-}
+};
 
 export const init = () => {
-  // @ts-ignore
+  // @ts-expect-error
   globalThis.__datastore = {};
   initStats();
   initProjects();
   initTasks();
 };
-
-

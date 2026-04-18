@@ -1,7 +1,7 @@
-import DateDecorator from "./date";
-import { Project, ProjectParams } from "./project";
 import { getProjects } from "../index";
 import { factory } from ".";
+import type DateDecorator from "./date";
+import type { Project, ProjectParams } from "./project";
 
 const Status = {
   initial: "initial",
@@ -158,7 +158,7 @@ export class TaskModel {
       return "";
     }
 
-    return this._raw.description.slice(0, length) + " " + delimiter;
+    return `${this._raw.description.slice(0, length)} ${delimiter}`;
   }
 
   validate() {
@@ -187,13 +187,13 @@ export class TaskModel {
     const filtered: Partial<TaskParams> = {};
     Object.keys(params).forEach((key: any) => {
       if (["description", "title", "status", "deadline"].includes(key)) {
-        // @ts-ignore
+        // @ts-expect-error
         filtered[key] = params[key];
       }
 
       if (key === "projectId") {
         const project = getProjects().find(
-          // @ts-ignore
+          // @ts-expect-error
           (project: Project) => project.id === params[key],
         );
         filtered.project = project;

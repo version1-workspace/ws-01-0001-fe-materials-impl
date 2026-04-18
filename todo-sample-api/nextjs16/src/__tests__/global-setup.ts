@@ -1,4 +1,4 @@
-import { execSync, spawn, type ChildProcess } from "child_process";
+import { type ChildProcess, execSync, spawn } from "node:child_process";
 
 const PORT = 3099;
 let server: ChildProcess;

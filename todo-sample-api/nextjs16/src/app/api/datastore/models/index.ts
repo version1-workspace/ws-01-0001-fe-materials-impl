@@ -1,9 +1,8 @@
-import { Project, ProjectParams, ProjectModel } from "./project";
-import { Stats, StatsParams, StatsModel } from "./stats";
-import { Task, TaskParams, TaskModel } from "./task";
-
 import DateDecorater from "./date";
-import { User, UserModel, UserParams } from "./user";
+import { type Project, ProjectModel, type ProjectParams } from "./project";
+import { type Stats, StatsModel, type StatsParams } from "./stats";
+import { type Task, TaskModel, type TaskParams } from "./task";
+import { type User, UserModel, type UserParams } from "./user";
 
 interface Params<T> {
   _raw: T;
@@ -14,7 +13,7 @@ interface HandlerParams {
 }
 
 const handler = <T>({ dateFields }: HandlerParams | undefined = {}) => ({
-  get: function (target: Params<T>, name: string) {
+  get: (target: Params<T>, name: string) => {
     if (name in target) {
       return target[name as keyof Params<T>];
     }

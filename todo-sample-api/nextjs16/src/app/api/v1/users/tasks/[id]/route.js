@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import dayjs from "dayjs";
+import { NextResponse } from "next/server";
 import { getTasks, setTasks } from "../../../../datastore";
 import { factory } from "../../../../datastore/models";
 import { notFound } from "../../../../lib/renderer";
@@ -26,7 +26,7 @@ export async function PATCH(request, context) {
 
   const tasks = getTasks();
   const index = tasks.findIndex((it) => it.id === id);
-  if (index == -1) {
+  if (index === -1) {
     return NextResponse.json(
       {
         message: "Not found",
@@ -59,7 +59,7 @@ export async function DELETE(_, context) {
 
   const tasks = getTasks();
   const index = tasks.findIndex((it) => it.id === id);
-  if (index == -1) {
+  if (index === -1) {
     return notFound();
   }
 

@@ -36,7 +36,7 @@ export class StatsModel {
         return dataset.data.map((item) => dayjs(item.date).format("YYYY / MM"));
       case "week":
         return dataset.data.map(
-          (item) => dayjs(item.date).format("MM-DD") + " ~ ",
+          (item) => `${dayjs(item.date).format("MM-DD")} ~ `,
         );
       case "day":
         return dataset.data.map((item) => dayjs(item.date).format("M / DD"));
@@ -72,7 +72,7 @@ export const dataset = (data: Stats[], unit: string) => {
       return {
         label: item.label,
         data: item.data.map((it) => it.value),
-        ...chartOptions[item.type]
+        ...chartOptions[item.type],
       };
     }),
   };

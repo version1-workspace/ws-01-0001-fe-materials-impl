@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 const BASE_URL = "http://localhost:3099/api/v1";
 

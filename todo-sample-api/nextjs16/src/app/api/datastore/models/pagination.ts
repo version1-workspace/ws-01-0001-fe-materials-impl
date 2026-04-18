@@ -18,13 +18,13 @@ export class PageInfo {
   }
 
   get serialize() {
-    return { 
+    return {
       page: this.page,
       limit: this.limit,
       totalCount: this.totalCount,
       hasNext: this.hasNext,
-      hasPrevious: this.hasPreviouis
-    }
+      hasPrevious: this.hasPreviouis,
+    };
   }
 
   get page() {
@@ -47,4 +47,3 @@ export class PageInfo {
     return this.page > 1;
   }
 }
-

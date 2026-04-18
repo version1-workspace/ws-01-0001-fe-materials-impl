@@ -1,7 +1,7 @@
-import DateDecorator from "./date";
 import { v4 as uuid } from "uuid";
+import type DateDecorator from "./date";
 
-type UserStatus = 'active' | 'deactive'
+type UserStatus = "active" | "deactive";
 
 export interface UserDateProps {
   createdAt: DateDecorator;
@@ -26,7 +26,6 @@ export class UserModel {
   constructor(params: UserParams) {
     this.id = params.uuid || uuid();
     this._raw = params;
-
   }
 
   get raw() {
