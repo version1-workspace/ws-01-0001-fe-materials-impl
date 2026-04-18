@@ -20,6 +20,10 @@
 # production
 /build
 
+# dist
+/dist/*
+!/dist/.keep
+
 # misc
 .DS_Store
 *.pem
@@ -39,5 +43,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-.DS_Store

@@ -1,0 +1,48 @@
+name: TODO Sample API CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "todo-sample-api/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "todo-sample-api/**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: [nextjs16]
+    defaults:
+      run:
+        working-directory: todo-sample-api/${{ matrix.target }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: todo-sample-api/${{ matrix.target }}/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target: [nextjs16]
+    defaults:
+      run:
+        working-directory: todo-sample-api/${{ matrix.target }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: todo-sample-api/${{ matrix.target }}/package-lock.json
+      - run: npm ci
+      - run: npm test
