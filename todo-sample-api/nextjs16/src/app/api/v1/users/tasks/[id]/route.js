@@ -5,9 +5,7 @@ import { factory } from "../../../../datastore/models";
 import { notFound } from "../../../../lib/renderer";
 
 export async function GET(_, context) {
-  const {
-    params: { id },
-  } = context;
+  const { id } = await context.params;
 
   const task = getTasks().find((it) => {
     return it.id === id;
@@ -23,9 +21,7 @@ export async function GET(_, context) {
 }
 
 export async function PATCH(request, context) {
-  const {
-    params: { id },
-  } = context;
+  const { id } = await context.params;
   const params = await request.json();
 
   const tasks = getTasks();
@@ -59,9 +55,7 @@ export async function PATCH(request, context) {
 }
 
 export async function DELETE(_, context) {
-  const {
-    params: { id },
-  } = context;
+  const { id } = await context.params;
 
   const tasks = getTasks();
   const index = tasks.findIndex((it) => it.id === id);

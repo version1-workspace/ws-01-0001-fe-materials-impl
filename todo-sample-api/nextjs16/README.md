@@ -6,7 +6,6 @@ https://github.com/version1-workspace/ws-01-0100-fe-materials/tree/main/0600-nex
 こちらの課題で使用する API を管理するためのリポジトリです。
 
 src/app/api 配下を zip にして、学習者が自分のローカル環境で確認できるようにしています。
-api で使用するモジュールは全て api 配下に配置しているため、ローカルで起動する際は src/app/api 配下を zip にして展開してください。
 
 ## ローカルでの起動方法
 
@@ -35,3 +34,9 @@ make zip
 ```
 
 `src/app/api` 配下を `dist/api.zip` としてまとめます。解凍すると `api/` ディレクトリが展開されます。
+
+api で使用するモジュールは全て api 配下に配置しているため、
+ローカルで起動する際は src/app/api 配下を zip にして展開してください。
+
+また、api 配下は外部への依存（ node_modules など）を持たないようにしてください。
+
