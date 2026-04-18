@@ -20,6 +20,10 @@
 # production
 /build
 
+# dist
+/dist/*
+!/dist/.keep
+
 # misc
 .DS_Store
 *.pem
