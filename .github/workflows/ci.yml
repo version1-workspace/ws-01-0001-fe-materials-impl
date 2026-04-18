@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "todo-sample-api/nextjs16/**"
+  pull_request:
+    branches: [main]
+    paths:
+      - "todo-sample-api/nextjs16/**"
+
+defaults:
+  run:
+    working-directory: todo-sample-api/nextjs16
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: todo-sample-api/nextjs16/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: todo-sample-api/nextjs16/package-lock.json
+      - run: npm ci
+      - run: npm test
