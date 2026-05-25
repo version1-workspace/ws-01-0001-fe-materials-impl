@@ -287,10 +287,9 @@ paths:
           description: タスクID
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 0
-            sample: 20
+            type: string
+            format: uuid
+            example: 43a4f5fd-3a4e-6818-2cf4-c9d2cc79aebd
       responses:
         '200':
           content:
@@ -323,10 +322,9 @@ paths:
           description: タスクID
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 0
-            sample: 20
+            type: string
+            format: uuid
+            example: 43a4f5fd-3a4e-6818-2cf4-c9d2cc79aebd
       requestBody:
         content:
           application/json:
@@ -365,10 +363,9 @@ paths:
           description: タスクID
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 0
-            sample: 20
+            type: string
+            format: uuid
+            example: 43a4f5fd-3a4e-6818-2cf4-c9d2cc79aebd
       responses:
         '200':
           content:
