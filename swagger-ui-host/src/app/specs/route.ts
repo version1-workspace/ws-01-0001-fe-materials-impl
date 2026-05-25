@@ -2,7 +2,9 @@ import fs from "fs";
 import type { NextRequest } from "next/server";
 import path from "path";
 
-const apiHost = process.env.NEXT_PUBLIC_API_URL || `http://localhost:${process.env.PORT || 3000}`;
+const apiHost =
+  process.env.NEXT_PUBLIC_API_URL ||
+  `http://localhost:${process.env.PORT || 3000}`;
 
 const templatePath = path.join("src/resources/swagger-ui/index.html");
 
