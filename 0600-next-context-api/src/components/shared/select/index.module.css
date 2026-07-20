@@ -28,6 +28,10 @@
 
 .flatValueContainer {
   box-shadow: none;
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid #edf1ef;
+  border-radius: 8px;
 }
 
 .pullDownContainer {

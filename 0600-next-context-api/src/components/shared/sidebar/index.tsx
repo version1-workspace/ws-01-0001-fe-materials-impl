@@ -3,9 +3,13 @@ import { ReactNode, useMemo, useState, Fragment } from "react";
 import styles from "@/components/shared/sidebar/index.module.css";
 import { useRouter, usePathname } from "next/navigation";
 import {
-  IoChevronForward as ShowIcon,
-  IoChevronBack as HiddenIcon,
-} from "react-icons/io5";
+  ChevronLeft,
+  ChevronRight,
+  FolderKanban,
+  LayoutDashboard,
+  ListTodo,
+  type LucideIcon,
+} from "lucide-react";
 import route from "@/lib/route";
 import useProjects from "@/contexts/projects";
 import { Project } from "@/services/api/models/project";
@@ -16,6 +20,7 @@ import { truncate } from "@/lib/string";
 interface MenuItem {
   title: string | ReactNode;
   path: string;
+  icon?: LucideIcon;
   children?: MenuItem[];
   footer?: ReactNode;
   options?: Record<string, any>;
@@ -27,14 +32,17 @@ const sidebarMenulist = (projects: Project[]) => [
   {
     title: "ダッシュボード",
     path: "/",
+    icon: LayoutDashboard,
   },
   {
     title: "タスク",
     path: route.tasks.toString(),
+    icon: ListTodo,
   },
   {
     title: <div>プロジェクト</div>,
     path: route.projects.toString(),
+    icon: FolderKanban,
     children: projects.slice(0, projectCountLimit).map((it) => {
       return {
         title: it.name,
@@ -81,7 +89,7 @@ export default function Sidebar() {
           <span
             className={styles.sidebarToggle}
             onClick={() => setShow((show) => !show)}>
-            {show ? <HiddenIcon /> : <ShowIcon />}
+            {show ? <ChevronLeft /> : <ChevronRight />}
           </span>
         </div>
         <div className={styles.body}>
@@ -89,6 +97,8 @@ export default function Sidebar() {
             <>
               <ul className={styles.menu}>
                 {list.map((menuItem: MenuItem) => {
+                  const MenuIcon = menuItem.icon;
+
                   return (
                     <Fragment key={`sidebar-${menuItem.path}`}>
                       <li onClick={() => router.push(menuItem.path)}>
@@ -103,6 +113,9 @@ export default function Sidebar() {
                               [styles.menuTitleActive]:
                                 pathname === menuItem.path,
                             })}>
+                            {MenuIcon ? (
+                              <MenuIcon className={styles.menuIcon} size={16} />
+                            ) : null}
                             {menuItem.title}
                           </div>
                         </div>

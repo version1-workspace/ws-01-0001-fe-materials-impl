@@ -1,63 +1,103 @@
-.projects {
+.dashboardPage {
   width: 100%;
-  height: 100%;
+  min-width: 960px;
 }
 
-.content {
-  padding: 16px 0;
+.pageTitle {
+  margin-bottom: 24px;
+  color: #1f2f2a;
+  font-size: 18px;
+  font-weight: 700;
 }
 
-.projectList {
-  flex: 1;
-  margin-right: 32px;
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(480px, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
-.projectListFooter {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.projectListLink {
-  font-size: 10px;
-  color: var(--primary-color);
-}
-
-.chart {
-  flex: 1;
+.cardPanel {
+  border: 1px solid #e4e9e6;
+  border-radius: 8px;
   background: var(--background-color);
+  box-shadow: 0 1px 2px #1f2f2a08;
 }
 
-.dashboard {
-  padding: 32px;
+.projectPanel,
+.progressPanel {
+  min-height: 420px;
+  padding: 28px;
+}
+
+.tasksPanel {
+  padding: 28px 32px;
+}
+
+.sectionHeading {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: var(--background-color);
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 .sectionTitle {
-  font-size: 14px;
-  font-weight: 100;
-  display: flex;
+  color: #16251f;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.iconAction {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--font-color-dark-weak);
 }
 
-.sectionHeader {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sectionFooter {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.link {
-  align-items: center;
-  display: flex;
+.iconAction:hover {
   color: var(--primary-color);
-  letter-spacing: 0.1rem;
-  font-size: 10px;
+  background: #eef9f3;
+}
+
+.projectList {
+  display: grid;
+  gap: 16px;
+}
+
+.projectLink {
+  display: block;
+}
+
+.projectLink :global(.card) {
+  margin-bottom: 0;
+}
+
+.projectPanel :global([class*="card"]) {
+  border-radius: 8px;
+}
+
+.projectPanel :global([class*="card"]:hover) {
+  transform: translateY(-2px);
+}
+
+.panelFooter {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.textLink,
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary-color);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .linkIcon {
@@ -65,20 +105,192 @@
   top: -1px;
 }
 
-.todos {
-  padding: 32px;
+.periodButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 64px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid #edf1ef;
+  border-radius: 8px;
   background: var(--background-color);
+  color: #34443d;
+  cursor: pointer;
+  font-weight: 700;
 }
 
-.todos .content {
-  min-width: 100%;
+.periodButton:hover {
+  border-color: #d7e3dd;
 }
 
-.addProject {
-  padding: 0 16px;
+.chartMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  color: #687a72;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.projectAddIcon {
-  color: var(--font-color-dark-weak);
+.legend,
+.dateRange {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.completedLegend,
+.scheduledLegend {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.completedLegend {
+  background: #16a34a;
+}
+
+.scheduledLegend {
+  margin-left: 14px;
+  background: #cfe7d6;
+}
+
+.chartContent {
+  height: 270px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.metricCard {
+  min-height: 84px;
+  padding: 16px;
+  border: 1px solid #e8eeeb;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.metricLabel {
+  margin-bottom: 8px;
+  color: #4d5e57;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.metricBody {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metricValue {
+  color: #1f2f2a;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.metricDelta {
+  color: #16a34a;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.metricDeltaLabel {
+  color: #93a79e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.progressRing {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+.progressRing::before {
+  content: "";
+  position: absolute;
+}
+
+.progressRing span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #24352f;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.taskListContent {
+  overflow: hidden;
+  border: 1px solid #e7ece9;
+  border-radius: 8px;
+}
+
+.tasksPanel :global([class*="tableHeader"]) {
+  min-height: 44px;
+  background: #fff;
+}
+
+.tasksPanel :global([class*="tableHeaderCell"]) {
+  display: flex;
+  align-items: center;
+  color: #7b8c85;
+  font-weight: 800;
+}
+
+.tasksPanel :global([class*="tableRow"]) {
+  min-height: 54px;
+  border-bottom: 1px solid #e7ece9;
+}
+
+.tasksPanel :global([class*="tableRow"]:last-child) {
+  border-bottom: 0;
+}
+
+.tasksPanel :global([class*="tableRow"]:hover) {
+  transform: none;
+  background: #fbfdfc;
+  box-shadow: none;
+}
+
+@media (max-width: 1200px) {
+  .dashboardPage {
+    min-width: 0;
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .projectPanel,
+  .progressPanel,
+  .tasksPanel {
+    padding: 20px;
+  }
+
+  .metrics,
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartMeta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

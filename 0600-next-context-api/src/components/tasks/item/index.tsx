@@ -1,12 +1,6 @@
 import styles from "./index.module.css";
 import { Task } from "@/services/api/models/task";
-import {
-  IoCalendarOutline as Calendar,
-  IoCheckmark as Check,
-  IoPencil as Edit,
-  IoCheckmark as Done,
-  IoArchiveOutline as Archive,
-} from "react-icons/io5";
+import { Archive, Calendar, Check, Pencil } from "lucide-react";
 import Icon from "@/components/shared/icon";
 import { join } from "@/lib/cls";
 import PopupMenu from "@/components/shared/popupMenu";
@@ -29,13 +23,13 @@ interface Actions {
 const getActions = ({ onEdit, onComplete, onArchive }: Actions) => [
   {
     key: "edit",
-    logo: <Edit className={styles.logo} />,
+    logo: <Pencil className={styles.logo} />,
     text: "編集する",
     onClick: onEdit,
   },
   {
     key: "complete",
-    logo: <Done className={styles.logo} />,
+    logo: <Check className={styles.logo} />,
     text: "完了にする",
     onClick: onComplete,
   },

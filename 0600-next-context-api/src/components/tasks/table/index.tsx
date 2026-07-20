@@ -129,7 +129,7 @@ const Row = ({ data }: RowProps) => {
       <div className={join(styles.tableCell, styles.detail)}>
         <Link href={route.tasks.with(data.id)}>
           <div className={styles.detailCircle}>
-            <Icon className={styles.detailIcon} name="arrowForward" />
+            <Icon className={styles.detailIcon} name="arrowForward" size={12} />
           </div>
         </Link>
       </div>

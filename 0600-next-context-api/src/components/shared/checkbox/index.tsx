@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IoCheckmark } from "react-icons/io5";
+import { Check } from "lucide-react";
 import styles from "./index.module.css";
 
 interface Props {
@@ -22,7 +22,7 @@ export default function Checkbox({ label, defaultValue, onClick }: Props) {
           onClick(next);
         }}>
         <div className={styles.box}>
-          {checked ? <IoCheckmark className={styles.check} /> : null}
+          {checked ? <Check className={styles.check} /> : null}
         </div>
         <p>{label}</p>
       </label>

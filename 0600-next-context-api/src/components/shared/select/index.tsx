@@ -64,7 +64,7 @@ export default function Select({
         <p className={styles.value}>
           {valueItem?.label || defaultOption.label}
         </p>
-        <Icon name="caretDown" />
+        <Icon name="caretDown" size={flat ? 12 : undefined} />
       </div>
       <div
         className={classHelper({

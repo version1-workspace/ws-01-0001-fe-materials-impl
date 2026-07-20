@@ -37,6 +37,20 @@ export default function Search() {
   return (
     <div className={styles.container}>
       {show ? <div className={styles.overlay} onClick={close}></div> : null}
+      <div className={styles.search}>
+        <Icon name="search" size={18} color="var(--font-color-dark-weak)" />
+        <input
+          type="search"
+          value={text}
+          placeholder="タスクタイトルで検索"
+          aria-label="タスクタイトルで検索"
+          onChange={(event) => {
+            const value = event.target.value;
+            setText(value);
+            search(value);
+          }}
+        />
+      </div>
       <div className={styles.popup}>
         {show ? (
           <ul className={styles.candidates}>

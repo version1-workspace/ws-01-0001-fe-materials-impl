@@ -1,11 +1,6 @@
 "use client";
 import { createContext, useState, useRef } from "react";
-import {
-  IoCloseOutline as Close,
-  IoCheckmarkCircleOutline as Success,
-  IoInformationCircleOutline as Info,
-  IoAlertCircleOutline as Error,
-} from "react-icons/io5";
+import { AlertCircle, CheckCircle, Info, X } from "lucide-react";
 import { Position } from "./config";
 import { capitalFirstChar } from "./util";
 import styles from "./index.module.css";
@@ -28,8 +23,8 @@ interface Element {
 
 const icons = {
   info: Info,
-  success: Success,
-  error: Error,
+  success: CheckCircle,
+  error: AlertCircle,
 };
 
 export const Toast = ({
@@ -48,7 +43,7 @@ export const Toast = ({
     <div className={[styles.container, variantStyle].join(" ")} style={style}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <Close className={styles.close} onClick={onClose} />
+          <X className={styles.close} onClick={onClose} />
         </div>
         <div className={styles.body}>
           <div className={styles.iconContainer}>

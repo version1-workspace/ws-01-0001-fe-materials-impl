@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { IoCloseOutline as Close } from "react-icons/io5";
+import { X } from "lucide-react";
 import { classHelper } from "@/lib/cls";
 import styles from "./index.module.css";
 
@@ -28,7 +28,7 @@ const Modal = ({ config, show, children, onClose }: Props) => {
         className={styles.content}
         onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <Close className={styles.close} onClick={onClose} />
+          <X className={styles.close} onClick={onClose} />
         </div>
         <div className={styles.body}>{children}</div>
       </div>

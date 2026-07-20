@@ -1,10 +1,6 @@
 import styles from "@/components/project/card/index.module.css";
 import { Project } from "@/services/api/models/project";
-import {
-  IoCalendarClear as Calendar,
-  IoGitCommit as Milestone,
-  IoDocument as Task,
-} from "react-icons/io5";
+import { Calendar, FileText, GitCommitHorizontal } from "lucide-react";
 
 interface Props {
   data: Project;
@@ -45,7 +41,7 @@ export default function Projet({ data }: Props) {
         <div className={styles.stats}>
           <p className={styles.milestone}>
             <span className={styles.icon}>
-              <Milestone size="12px" color={data.color} />
+              <GitCommitHorizontal size="12px" color={data.color} />
             </span>
             <span className={styles.statsText}>
               {data.stats?.kinds.milestone || 0}
@@ -53,7 +49,7 @@ export default function Projet({ data }: Props) {
           </p>
           <p className={styles.task}>
             <span className={styles.icon}>
-              <Task size="12px" color={data.color} />
+              <FileText size="12px" color={data.color} />
             </span>
             <span className={styles.statsText}>{data.stats?.kinds.task}</span>
           </p>
