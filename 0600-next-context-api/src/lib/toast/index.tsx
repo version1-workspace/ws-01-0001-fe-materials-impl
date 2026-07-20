@@ -1,6 +1,11 @@
 "use client";
 import { createContext, useState, useRef } from "react";
-import { AlertCircle, CheckCircle, Info, X } from "lucide-react";
+import {
+  CircleAlert as Error,
+  CircleCheck as Success,
+  Info,
+  X as Close,
+} from "lucide-react";
 import { Position } from "./config";
 import { capitalFirstChar } from "./util";
 import styles from "./index.module.css";
@@ -23,8 +28,8 @@ interface Element {
 
 const icons = {
   info: Info,
-  success: CheckCircle,
-  error: AlertCircle,
+  success: Success,
+  error: Error,
 };
 
 export const Toast = ({
@@ -42,15 +47,19 @@ export const Toast = ({
   return (
     <div className={[styles.container, variantStyle].join(" ")} style={style}>
       <div className={styles.content}>
-        <div className={styles.header}>
-          <X className={styles.close} onClick={onClose} />
-        </div>
         <div className={styles.body}>
           <div className={styles.iconContainer}>
             <Icon className={styles.icon} />
           </div>
           <div className={styles.message}>{config.message}</div>
         </div>
+        <button
+          aria-label="通知を閉じる"
+          className={styles.closeButton}
+          type="button"
+          onClick={onClose}>
+          <Close className={styles.close} />
+        </button>
       </div>
     </div>
   );
