@@ -1,0 +1,40 @@
+{
+  "name": "core",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "deploy": "netlify deploy --prod",
+    "start": "next start",
+    "lint": "next lint",
+    "tsc": "tsc --project tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@types/node": "20.5.1",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "axios": "^1.6.2",
+    "chart.js": "^4.3.3",
+    "dayjs": "^1.11.9",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "13.4.19",
+    "next": "^14.2.35",
+    "query-string": "^8.2.0",
+    "react": "18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "sass": "^1.72.0",
+    "typescript": "^5.4.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.2",
+    "vitest": "^1.4.0"
+  }
+}
