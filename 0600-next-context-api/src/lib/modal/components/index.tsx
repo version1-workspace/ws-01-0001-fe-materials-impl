@@ -1,0 +1,39 @@
+import { ReactNode } from "react";
+import { X } from "lucide-react";
+import { classHelper } from "@/lib/cls";
+import styles from "./index.module.css";
+
+export interface ContainerConfig {
+  width: string;
+}
+
+interface Props {
+  show?: boolean;
+  config: ContainerConfig;
+  children: ReactNode;
+  onClose: () => void;
+}
+
+const Modal = ({ config, show, children, onClose }: Props) => {
+  return (
+    <div
+      className={classHelper({
+        [styles.container]: true,
+        [styles.show]: show,
+        [styles.hide]: !show,
+      })}
+      onClick={onClose}>
+      <div
+        style={{ width: config.width }}
+        className={styles.content}
+        onClick={(e) => e.stopPropagation()}>
+        <div className={styles.header}>
+          <X className={styles.close} onClick={onClose} />
+        </div>
+        <div className={styles.body}>{children}</div>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;
